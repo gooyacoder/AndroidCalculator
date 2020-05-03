@@ -659,9 +659,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void add_btn_clicked(View view) {
         operator = "+";
-        isOperand_001 = false;
-        isOperand_002 = true;
-        display_view.setText("");
+        if(operand_002.length() == 0){
+            isOperand_001 = false;
+            isOperand_002 = true;
+            display_view.setText("");
+        }else if(operand_001.length() > 0 && operand_002.length() > 0){
+            double op1, op2;
+            op1 = Double.parseDouble(operand_001);
+            op2 = Double.parseDouble(operand_002);
+            double result = op1 + op2;
+            operand_001 = String.valueOf(result);
+            operand_002 = "";
+            display_view.setText(operand_001);
+        }
+
     }
 
     private void equal_btn_clicked(View view) {
@@ -721,6 +732,7 @@ public class MainActivity extends AppCompatActivity {
         display_view.setText(result_string);
         operand_001 = result_string;
         operand_002 = "";
+        isOperand_002 = false;
     }
 
     private void dot_btn_clicked(View view) {
