@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:orientation="vertical"
-   >
+    >
 
     <TextView
         android:id="@+id/calc_display"
@@ -33,8 +33,9 @@
         android:paddingLeft="2dp">
 
         <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
 
             <TableRow android:paddingLeft="5dp">
@@ -107,7 +108,7 @@
                     android:layout_height="25dp"
                     android:layout_margin="4dp"
                     android:background="@drawable/oval_btn"
-                    android:text="x^0.5"
+                    android:text="\u221a"
                     android:textAllCaps="false"
                     android:textColor="#000000"
                     android:textSize="15sp"
@@ -176,9 +177,10 @@
         android:paddingLeft="3dp">
 
         <TableLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:padding="5dp">
+            android:padding="5dp"
+            android:layout_gravity="center">
             
             <TableRow>
                 <Button
