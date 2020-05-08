@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     String operand_001, operand_002, operator;
     boolean isOperand_001, isOperand_002;
+    boolean operandChanged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         operator = "";
         isOperand_001 = true;
         isOperand_002 = false;
+        operandChanged = false;
 
         cot_btn = findViewById(R.id.cot_btn);
 
@@ -637,70 +639,185 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void divide_btn_clicked(View view) {
+        String previousOperator = operator;
+        if(!operator.equals("/")){
+            operandChanged = true;
+        }else{
+            operandChanged = false;
+        }
+
         operator = "/";
         if(operand_002.length() == 0){
             isOperand_001 = false;
             isOperand_002 = true;
             display_view.setText("");
         }else if(operand_001.length() > 0 && operand_002.length() > 0){
-            double op1, op2;
-            op1 = Double.parseDouble(operand_001);
-            op2 = Double.parseDouble(operand_002);
-            double result = op1 / op2;
-            operand_001 = String.valueOf(result);
-            operand_002 = "";
-            display_view.setText(operand_001);
+            if(operandChanged){
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = 0.0;
+                switch(previousOperator){
+                    case "+":
+                        result = op1 + op2;
+                        break;
+                    case "-":
+                        result = op1 - op2;
+                        break;
+                    case "*":
+                        result = op1 * op2;
+                        break;
+                }
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
+            else{
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = op1 / op2;
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
         }
     }
 
     private void multiply_btn_clicked(View view) {
+        String previousOperator = operator;
+        if(!operator.equals("*")){
+            operandChanged = true;
+        }else{
+            operandChanged = false;
+        }
+
         operator = "*";
         if(operand_002.length() == 0){
             isOperand_001 = false;
             isOperand_002 = true;
             display_view.setText("");
         }else if(operand_001.length() > 0 && operand_002.length() > 0){
-            double op1, op2;
-            op1 = Double.parseDouble(operand_001);
-            op2 = Double.parseDouble(operand_002);
-            double result = op1 * op2;
-            operand_001 = String.valueOf(result);
-            operand_002 = "";
-            display_view.setText(operand_001);
+            if(operandChanged){
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = 0.0;
+                switch(previousOperator){
+                    case "+":
+                        result = op1 + op2;
+                        break;
+                    case "-":
+                        result = op1 - op2;
+                        break;
+                    case "/":
+                        result = op1 / op2;
+                        break;
+                }
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
+            else{
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = op1 * op2;
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
         }
     }
 
     private void subtract_btn_clicked(View view) {
+        String previousOperator = operator;
+        if(!operator.equals("-")){
+            operandChanged = true;
+        }else{
+            operandChanged = false;
+        }
+
         operator = "-";
         if(operand_002.length() == 0){
             isOperand_001 = false;
             isOperand_002 = true;
             display_view.setText("");
         }else if(operand_001.length() > 0 && operand_002.length() > 0){
-            double op1, op2;
-            op1 = Double.parseDouble(operand_001);
-            op2 = Double.parseDouble(operand_002);
-            double result = op1 - op2;
-            operand_001 = String.valueOf(result);
-            operand_002 = "";
-            display_view.setText(operand_001);
+            if(operandChanged){
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = 0.0;
+                switch(previousOperator){
+                    case "+":
+                        result = op1 + op2;
+                        break;
+                    case "*":
+                        result = op1 * op2;
+                        break;
+                    case "/":
+                        result = op1 / op2;
+                        break;
+                }
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
+            else{
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = op1 - op2;
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
         }
     }
 
     private void add_btn_clicked(View view) {
+        String previousOperator = operator;
+        if(!operator.equals("+")){
+            operandChanged = true;
+        }else{
+            operandChanged = false;
+        }
         operator = "+";
         if(operand_002.length() == 0){
             isOperand_001 = false;
             isOperand_002 = true;
             display_view.setText("");
         }else if(operand_001.length() > 0 && operand_002.length() > 0){
-            double op1, op2;
-            op1 = Double.parseDouble(operand_001);
-            op2 = Double.parseDouble(operand_002);
-            double result = op1 + op2;
-            operand_001 = String.valueOf(result);
-            operand_002 = "";
-            display_view.setText(operand_001);
+            if(operandChanged){
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = 0.0;
+                switch(previousOperator){
+                    case "-":
+                        result = op1 - op2;
+                        break;
+                    case "*":
+                        result = op1 * op2;
+                        break;
+                    case "/":
+                        result = op1 / op2;
+                        break;
+                }
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
+            else{
+                double op1, op2;
+                op1 = Double.parseDouble(operand_001);
+                op2 = Double.parseDouble(operand_002);
+                double result = op1 + op2;
+                operand_001 = String.valueOf(result);
+                operand_002 = "";
+                display_view.setText(operand_001);
+            }
         }
     }
 
@@ -761,6 +878,7 @@ public class MainActivity extends AppCompatActivity {
         display_view.setText(result_string);
         operand_001 = result_string;
         operand_002 = "";
+        operandChanged = false;
     }
 
     private void dot_btn_clicked(View view) {

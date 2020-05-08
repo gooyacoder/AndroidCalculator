@@ -30,7 +30,7 @@
         android:background="#B4B4B4"
         android:orientation="vertical"
         android:paddingTop="4dp"
-        android:paddingLeft="2dp">
+        >
 
         <TableLayout
             android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
             android:layout_gravity="center">
 
 
-            <TableRow android:paddingLeft="5dp">
+            <TableRow >
 
                 <Button
                     android:id="@+id/square_btn"
@@ -100,7 +100,7 @@
 
             </TableRow>
 
-            <TableRow android:paddingLeft="5dp">
+            <TableRow >
 
                 <Button
                     android:id="@+id/square_root_btn"
