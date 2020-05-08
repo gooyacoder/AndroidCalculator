@@ -693,7 +693,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         operator = "*";
-        if(operand_002.length() == 0){
+       if(operand_002.length() == 0){
             isOperand_001 = false;
             isOperand_002 = true;
             display_view.setText("");
@@ -824,8 +824,8 @@ public class MainActivity extends AppCompatActivity {
     private void equal_btn_clicked(View view) {
         display_view.setText("");
         calculate();
-        isOperand_001 = false;
-        isOperand_002 = true;
+        isOperand_001 = true;
+        isOperand_002 = false;
     }
 
     private void calculate() {
@@ -876,9 +876,9 @@ public class MainActivity extends AppCompatActivity {
         }
         String result_string = String.valueOf(result);
         display_view.setText(result_string);
-        operand_001 = result_string;
+        operand_001 = "";
         operand_002 = "";
-        operandChanged = false;
+        operator = "";
     }
 
     private void dot_btn_clicked(View view) {
