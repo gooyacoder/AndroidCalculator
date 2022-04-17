@@ -824,8 +824,7 @@ public class MainActivity extends AppCompatActivity {
     private void equal_btn_clicked(View view) {
         display_view.setText("");
         calculate();
-        isOperand_001 = true;
-        isOperand_002 = false;
+
     }
 
     private void calculate() {
@@ -876,9 +875,11 @@ public class MainActivity extends AppCompatActivity {
         }
         String result_string = String.valueOf(result);
         display_view.setText(result_string);
-        operand_001 = "";
+        operand_001 = result_string;
         operand_002 = "";
         operator = "";
+        isOperand_002 = true;
+        isOperand_001 = false;
     }
 
     private void dot_btn_clicked(View view) {
